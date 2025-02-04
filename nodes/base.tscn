@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://dlsbu83o117m"]
+
+[ext_resource type="Script" path="res://nodes/base.gd" id="1_ia14c"]
+[ext_resource type="Texture2D" uid="uid://dqmlakivu63c2" path="res://graphics/basebroken.png" id="2_e275v"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xaxsc"]
+radius = 44.0009
+height = 132.0
+
+[node name="Base" type="StaticBody2D"]
+
+[node name="Base" type="Node" parent="."]
+script = ExtResource("1_ia14c")
+carbon_dioxide_ttc = 5.0
+nitrogen_ttc = 5.0
+argon_ttc = 5.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_e275v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(8.72888e-10, 0.999999)
+rotation = 1.5699
+shape = SubResource("CapsuleShape2D_xaxsc")

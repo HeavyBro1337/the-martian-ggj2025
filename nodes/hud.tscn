@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://d1wm160rdxj1x"]
+
+[ext_resource type="Texture2D" uid="uid://cqy66b7x7e7yg" path="res://graphics/ui/o2_label.png" id="1_j7gvx"]
+[ext_resource type="Texture2D" uid="uid://4ajlkopvqwrj" path="res://graphics/ui/o2_empty.png" id="1_ptkgn"]
+[ext_resource type="Texture2D" uid="uid://dfmjr16dy1rov" path="res://graphics/ui/o2_full.png" id="2_03mop"]
+[ext_resource type="Script" path="res://nodes/oxygen_ui.gd" id="4_ouea7"]
+
+[node name="Hud" type="CanvasLayer"]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_j7gvx")
+expand_mode = 3
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="HBoxContainer"]
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+value = 1.0
+texture_under = ExtResource("1_ptkgn")
+texture_progress = ExtResource("2_03mop")
+script = ExtResource("4_ouea7")

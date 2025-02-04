@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://dxya1dcdd8e3g"]
+
+[ext_resource type="Script" path="res://nodes/random_node.gd" id="1_7vdqa"]
+[ext_resource type="PackedScene" uid="uid://mcp41xordshb" path="res://nodes/meteor_craters/meteor_crater.tscn" id="2_7l4as"]
+
+[node name="MeteorCrater" type="Node2D"]
+script = ExtResource("1_7vdqa")
+scenes = Array[PackedScene]([ExtResource("2_7l4as")])

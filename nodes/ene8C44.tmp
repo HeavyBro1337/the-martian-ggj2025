@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://dyx17awcfw4n4"]
+
+[ext_resource type="Texture2D" uid="uid://dndhb7ta0o4cp" path="res://icon.svg" id="1_4ihsw"]
+[ext_resource type="Script" path="res://nodes/enemy_agent.gd" id="2_0k854"]
+[ext_resource type="Script" path="res://nodes/damage.gd" id="3_0dggh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e1yms"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8q2dy"]
+radius = 24.0
+
+[node name="Enemy" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 2
+motion_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_e1yms")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 0, 0, 1)
+scale = Vector2(0.21875, 0.21875)
+texture = ExtResource("1_4ihsw")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+avoidance_enabled = true
+script = ExtResource("2_0k854")
+visible_range = 128.0
+speed = 100.0
+
+[node name="Wander" type="Timer" parent="NavigationAgent2D"]
+wait_time = 9.0
+autostart = true
+
+[node name="Damage" type="Area2D" parent="."]
+script = ExtResource("3_0dggh")
+damage = 4.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Damage"]
+shape = SubResource("CircleShape2D_8q2dy")
+
+[node name="Timer" type="Timer" parent="Damage"]
+autostart = true

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cfci0dhwrbodq"]
+
+[ext_resource type="Texture2D" uid="uid://cxqi2bp8gu0ok" path="res://graphics/robot_ruins.png" id="1_rx4sb"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_rx4sb")

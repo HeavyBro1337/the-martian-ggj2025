@@ -1,0 +1,164 @@
+[gd_scene load_steps=22 format=3 uid="uid://dyx17awcfw4n4"]
+
+[ext_resource type="Texture2D" uid="uid://cpyi2wi7d7g55" path="res://graphics/robot.png" id="1_dt0fl"]
+[ext_resource type="Texture2D" uid="uid://odv1wtp2feyv" path="res://graphics/ROBOT-Attack.png" id="1_rrsjp"]
+[ext_resource type="Script" path="res://nodes/enemy_agent.gd" id="2_0k854"]
+[ext_resource type="Texture2D" uid="uid://b1jostletyr2y" path="res://graphics/robot_walk.png" id="2_li5up"]
+[ext_resource type="Script" path="res://nodes/damage.gd" id="3_0dggh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e1yms"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q8mtd"]
+atlas = ExtResource("1_rrsjp")
+region = Rect2(0, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dstk6"]
+atlas = ExtResource("1_rrsjp")
+region = Rect2(40, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_44q4l"]
+atlas = ExtResource("1_rrsjp")
+region = Rect2(80, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uyef6"]
+atlas = ExtResource("1_rrsjp")
+region = Rect2(120, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hp7d3"]
+atlas = ExtResource("1_rrsjp")
+region = Rect2(160, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_47pws"]
+atlas = ExtResource("1_rrsjp")
+region = Rect2(200, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o2amk"]
+atlas = ExtResource("2_li5up")
+region = Rect2(0, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0y3s8"]
+atlas = ExtResource("2_li5up")
+region = Rect2(40, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x2aqj"]
+atlas = ExtResource("2_li5up")
+region = Rect2(80, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_01jus"]
+atlas = ExtResource("2_li5up")
+region = Rect2(120, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_spv0k"]
+atlas = ExtResource("2_li5up")
+region = Rect2(160, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ea8j"]
+atlas = ExtResource("2_li5up")
+region = Rect2(200, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mlmev"]
+atlas = ExtResource("2_li5up")
+region = Rect2(240, 0, 40, 40)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c6cxc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q8mtd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dstk6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_44q4l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uyef6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hp7d3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_47pws")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_dt0fl")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o2amk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0y3s8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x2aqj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_01jus")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_spv0k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ea8j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mlmev")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 12.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8q2dy"]
+radius = 24.0
+
+[node name="Enemy" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 2
+motion_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_e1yms")
+debug_color = Color(0.967241, 0, 0.475498, 0.42)
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -19)
+sprite_frames = SubResource("SpriteFrames_c6cxc")
+animation = &"attack"
+autoplay = "idle"
+frame = 4
+frame_progress = 0.984922
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+avoidance_enabled = true
+script = ExtResource("2_0k854")
+visible_range = 128.0
+speed = 50.0
+
+[node name="Wander" type="Timer" parent="NavigationAgent2D"]
+wait_time = 9.0
+autostart = true
+
+[node name="Damage" type="Area2D" parent="."]
+script = ExtResource("3_0dggh")
+damage = 4.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Damage"]
+shape = SubResource("CircleShape2D_8q2dy")
+
+[node name="Timer" type="Timer" parent="Damage"]
+autostart = true
+
+[connection signal="animation_finished" from="Sprite2D" to="Sprite2D" method="play" binds= ["walk"]]
+[connection signal="damaged_target" from="Damage" to="Sprite2D" method="play" binds= ["attack"]]

@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cr2t17p6rwmy7"]
+
+[ext_resource type="PackedScene" uid="uid://bkf662fivlwrs" path="res://nodes/crater.tscn" id="1_dccxs"]
+[ext_resource type="Texture2D" uid="uid://ujdfcj7jrlb0" path="res://graphics/nitrogen_bubble.png" id="2_rg1hq"]
+
+[node name="NitrogenCrater" instance=ExtResource("1_dccxs")]
+gas_type = 1
+
+[node name="GPUParticles2D" parent="." index="2"]
+modulate = Color(0.490196, 0.898039, 0.866667, 1)
+
+[node name="CollisionShape2D" parent="Interact" index="0"]
+visible = true
+position = Vector2(-1, -28)
+
+[node name="Bubble" parent="." index="7"]
+texture = ExtResource("2_rg1hq")

@@ -1,0 +1,59 @@
+[gd_scene load_steps=11 format=3 uid="uid://ggrhp5ammb1f"]
+
+[ext_resource type="Script" path="res://nodes/station_base.gd" id="1_xvib4"]
+[ext_resource type="Script" path="res://nodes/interaction.gd" id="2_6anji"]
+[ext_resource type="Texture2D" uid="uid://j34r8hms610m" path="res://graphics/canister/tanks/right/right-tank_Co2.png" id="2_k3p5o"]
+[ext_resource type="Texture2D" uid="uid://dguafjmqqc1ko" path="res://graphics/canister/tanks/left/left-tank_Co2.png" id="3_1dw01"]
+[ext_resource type="Texture2D" uid="uid://c6d6qpf2hgrdq" path="res://graphics/co2_station.png" id="3_2yypl"]
+[ext_resource type="Texture2D" uid="uid://bm13uubvyue1i" path="res://graphics/canister/screen/screen_green.png" id="4_w00k4"]
+[ext_resource type="Texture2D" uid="uid://bimih2qi4q12i" path="res://graphics/canister/screen/screen_red.png" id="5_5ntb5"]
+[ext_resource type="Texture2D" uid="uid://tstljeig5okw" path="res://graphics/canister/screen/screen_yellow.png" id="6_r44vx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2o1g4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y0g27"]
+size = Vector2(38, 28)
+
+[node name="StationBase" type="Node2D"]
+script = ExtResource("1_xvib4")
+canister_filled_right = ExtResource("2_k3p5o")
+canister_filled_left = ExtResource("3_1dw01")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -27)
+texture = ExtResource("3_2yypl")
+
+[node name="TankRight" type="Sprite2D" parent="Sprite2D"]
+unique_name_in_owner = true
+visible = false
+
+[node name="TankLeft" type="Sprite2D" parent="Sprite2D"]
+unique_name_in_owner = true
+visible = false
+
+[node name="Done" type="Sprite2D" parent="Sprite2D"]
+visible = false
+texture = ExtResource("4_w00k4")
+
+[node name="Empty" type="Sprite2D" parent="Sprite2D"]
+texture = ExtResource("5_5ntb5")
+
+[node name="HalfWay" type="Sprite2D" parent="Sprite2D"]
+visible = false
+texture = ExtResource("6_r44vx")
+
+[node name="Intercation" type="Area2D" parent="Sprite2D"]
+position = Vector2(0, 27)
+script = ExtResource("2_6anji")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Intercation"]
+position = Vector2(0, -10)
+shape = SubResource("RectangleShape2D_2o1g4")
+
+[node name="Area2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -19)
+shape = SubResource("RectangleShape2D_y0g27")
+
+[connection signal="interacted" from="Sprite2D/Intercation" to="." method="deposit_gas"]

@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cniaeeq2iuv57"]
+
+[ext_resource type="PackedScene" uid="uid://bkf662fivlwrs" path="res://nodes/crater.tscn" id="1_73gwv"]
+[ext_resource type="Texture2D" uid="uid://f21fevq81y8q" path="res://graphics/ar_bubble.png" id="2_qqkjg"]
+
+[node name="ArgonCrater" instance=ExtResource("1_73gwv")]
+gas_type = 2
+
+[node name="GPUParticles2D" parent="." index="2"]
+modulate = Color(0.933333, 0.541176, 0.854902, 1)
+
+[node name="CollisionShape2D" parent="Interact" index="0"]
+visible = true
+position = Vector2(-1, -28)
+
+[node name="Bubble" parent="." index="7"]
+texture = ExtResource("2_qqkjg")

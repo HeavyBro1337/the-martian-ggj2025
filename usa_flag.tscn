@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bubkxvjnvqjci"]
+
+[ext_resource type="Texture2D" uid="uid://cw3nneaju0i58" path="res://graphics/usa_flag.png" id="1_seogp"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_seogp")

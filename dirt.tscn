@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://csfo4bynfy713"]
+
+[ext_resource type="Texture2D" uid="uid://dfla4xnm5cu1e" path="res://graphics/kumni.png" id="1_0bwya"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_0bwya")

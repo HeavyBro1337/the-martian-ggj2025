@@ -1,0 +1,84 @@
+[gd_scene load_steps=12 format=3 uid="uid://bkf662fivlwrs"]
+
+[ext_resource type="Script" path="res://nodes/crater.gd" id="1_2p3kb"]
+[ext_resource type="Texture2D" uid="uid://bsyq8e7ae3omt" path="res://graphics/tiles/crater.png" id="1_o0f1b"]
+[ext_resource type="Texture2D" uid="uid://cyd6d2cynot82" path="res://graphics/bubble.png" id="2_od6s5"]
+[ext_resource type="Script" path="res://nodes/interaction.gd" id="3_sexut"]
+[ext_resource type="Texture2D" uid="uid://c2mrlbwl26hal" path="res://graphics/co2_bubble.png" id="5_axl5t"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d2sku"]
+radius = 32.0
+
+[sub_resource type="Curve" id="Curve_yrkee"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_e1abh"]
+curve = SubResource("Curve_yrkee")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_uwsq3"]
+particle_flag_disable_z = true
+angle_min = -720.0
+angle_max = 720.0
+spread = 180.0
+initial_velocity_min = 14.09
+initial_velocity_max = 169.02
+gravity = Vector3(0, 98, 0)
+damping_min = 0.94
+damping_max = 1.44
+scale_min = 0.25
+alpha_curve = SubResource("CurveTexture_e1abh")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ae287"]
+radius = 3.3632
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ye3t7"]
+size = Vector2(46, 27)
+
+[node name="Crater" type="Area2D"]
+script = ExtResource("1_2p3kb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_o0f1b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("CircleShape2D_d2sku")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 1
+process_material = SubResource("ParticleProcessMaterial_uwsq3")
+texture = ExtResource("2_od6s5")
+lifetime = 60.0
+
+[node name="Interact" type="Area2D" parent="."]
+script = ExtResource("3_sexut")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interact"]
+visible = false
+position = Vector2(0, -1)
+scale = Vector2(9.83288, 9.15027)
+shape = SubResource("CircleShape2D_ae287")
+
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
+visible = false
+radius = 45.05
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+visible = false
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_ye3t7")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 6.0
+one_shot = true
+autostart = true
+
+[node name="Bubble" type="Sprite2D" parent="."]
+position = Vector2(0, -28)
+texture = ExtResource("5_axl5t")
+
+[connection signal="interacted" from="Interact" to="." method="collect_gas"]

@@ -1,0 +1,63 @@
+[gd_scene load_steps=6 format=3 uid="uid://c7pf88kdhvoi3"]
+
+[ext_resource type="Texture2D" uid="uid://ck64ik181o42g" path="res://graphics/titlenewpng.png" id="1_6kehi"]
+[ext_resource type="Script" path="res://nodes/ui/start_game_btn.gd" id="1_i7lyd"]
+[ext_resource type="Script" path="res://nodes/ui/how_to_play_btn.gd" id="2_nt1jj"]
+[ext_resource type="Script" path="res://nodes/ui/credits_btn.gd" id="3_6t1p3"]
+[ext_resource type="Script" path="res://nodes/ui/quit_btn.gd" id="3_uw7wx"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_6kehi")
+expand_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 944.0
+offset_top = 438.0
+offset_right = 1094.0
+offset_bottom = 574.0
+
+[node name="Resume" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Start Game"
+alignment = 2
+script = ExtResource("1_i7lyd")
+target_scene = "res://intro.tscn"
+
+[node name="HowToPlay" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "How to play"
+alignment = 2
+script = ExtResource("2_nt1jj")
+target_scene = "res://nodes/ui/HowToPlay.tscn"
+
+[node name="Credits" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Credits"
+alignment = 2
+script = ExtResource("3_6t1p3")
+target_scene = "res://nodes/ui/credits.tscn"
+
+[node name="Exit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+alignment = 2
+script = ExtResource("3_uw7wx")
+
+[connection signal="pressed" from="VBoxContainer/Resume" to="VBoxContainer/Resume" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/HowToPlay" to="VBoxContainer/HowToPlay" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/Exit" to="VBoxContainer/Exit" method="_on_pressed"]

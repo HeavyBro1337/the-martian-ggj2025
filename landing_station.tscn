@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://clwn6x3il1hfd"]
+
+[ext_resource type="Texture2D" uid="uid://dikw3nxpd2r2u" path="res://graphics/PROVOLOKA.png" id="1_vgpb1"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_0fo3m"]
+a = Vector2(0, -44)
+b = Vector2(0, 50)
+
+[node name="LandingStation" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_vgpb1")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-25, -3)
+shape = SubResource("SegmentShape2D_0fo3m")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-68, -49)
+rotation = 1.5727
+shape = SubResource("SegmentShape2D_0fo3m")

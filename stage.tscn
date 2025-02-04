@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bgwa61f0dg455"]
+
+[ext_resource type="Texture2D" uid="uid://n3bwi6fohwxv" path="res://graphics/KRUG.png" id="1_a1ir2"]
+
+[node name="Stage" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_a1ir2")

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cjgh0ambn3ksn"]
+
+[ext_resource type="Script" path="res://invisible_floor.gd" id="1_w533d"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_t4mjp"]
+b = Vector2(2.3955, 155.982)
+
+[node name="StaticBody2D" type="StaticBody2D"]
+script = ExtResource("1_w533d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = -1.55544
+shape = SubResource("SegmentShape2D_t4mjp")

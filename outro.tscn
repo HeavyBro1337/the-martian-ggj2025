@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://xpnonjkksk0h"]
+
+[ext_resource type="Texture2D" uid="uid://dvuxl5ungg7ps" path="res://graphics/Outro1.png" id="1_p8n01"]
+[ext_resource type="Texture2D" uid="uid://bxw676wgmu7ho" path="res://graphics/Outro2.png" id="2_38jfd"]
+[ext_resource type="Script" path="res://switch.gd" id="2_i20ma"]
+[ext_resource type="Texture2D" uid="uid://u1ks63qvtuc4" path="res://graphics/Outro3.png" id="3_m2xpq"]
+[ext_resource type="Texture2D" uid="uid://cs0dsr5lrrf1a" path="res://graphics/Outro4.png" id="4_3bcs1"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yoi8t"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_p8n01")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_38jfd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_m2xpq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_3bcs1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_3bcs1")
+}],
+"loop": false,
+"name": &"default",
+"speed": 0.0
+}]
+
+[node name="Outro" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(618.704, 341.5)
+scale = Vector2(6.44596, 6.43518)
+sprite_frames = SubResource("SpriteFrames_yoi8t")
+autoplay = "default"
+script = ExtResource("2_i20ma")
+frame_sounds = Array[AudioStream]([null, null, null, null, null, null])
+last_frame = 4
+is_intro = false
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="AnimatedSprite2D"]
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="AnimatedSprite2D" method="_on_animation_finished"]

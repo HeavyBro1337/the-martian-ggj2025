@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://k11tpo5f44rw"]
+
+[ext_resource type="Texture2D" uid="uid://br6m3g0ik6gtq" path="res://graphics/Estonia_Flag.png" id="1_b2rve"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_b2rve")

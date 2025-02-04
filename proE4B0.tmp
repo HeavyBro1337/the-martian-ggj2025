@@ -1,0 +1,244 @@
+[gd_scene load_steps=5 format=3 uid="uid://bd78d0ogipbsq"]
+
+[ext_resource type="Script" path="res://bubbler.gd" id="1_i5nsn"]
+[ext_resource type="Script" path="res://paintable.gd" id="1_mxnmk"]
+[ext_resource type="Texture2D" uid="uid://dndhb7ta0o4cp" path="res://icon.svg" id="2_ibni4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xv6un"]
+size = Vector2(128, 128)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_i5nsn")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0, 0, 0, 1)
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(71, 49)
+scale = Vector2(0.25, 0.25)
+script = ExtResource("1_mxnmk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_xv6un")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+clip_children = 2
+texture = ExtResource("2_ibni4")
+
+[node name="Area2D2" type="Area2D" parent="."]
+position = Vector2(71, 20)
+scale = Vector2(0.25, 0.25)
+script = ExtResource("1_mxnmk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+shape = SubResource("RectangleShape2D_xv6un")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D2"]
+clip_children = 2
+texture = ExtResource("2_ibni4")
+
+[node name="Area2D3" type="Area2D" parent="."]
+position = Vector2(71, -8)
+scale = Vector2(0.25, 0.25)
+script = ExtResource("1_mxnmk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D3"]
+shape = SubResource("RectangleShape2D_xv6un")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D3"]
+clip_children = 2
+texture = ExtResource("2_ibni4")
+
+[node name="Area2D4" type="Area2D" parent="."]
+position = Vector2(70, -38)
+scale = Vector2(0.25, 0.25)
+script = ExtResource("1_mxnmk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D4"]
+shape = SubResource("RectangleShape2D_xv6un")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D4"]
+clip_children = 2
+texture = ExtResource("2_ibni4")
+
+[node name="Area2D5" type="Area2D" parent="."]
+position = Vector2(40, -37)
+scale = Vector2(0.25, 0.25)
+script = ExtResource("1_mxnmk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D5"]
+shape = SubResource("RectangleShape2D_xv6un")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D5"]
+clip_children = 2
+texture = ExtResource("2_ibni4")
+
+[node name="Area2D6" type="Area2D" parent="."]
+position = Vector2(15, -35)
+scale = Vector2(0.25, 0.25)
+script = ExtResource("1_mxnmk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D6"]
+shape = SubResource("RectangleShape2D_xv6un")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D6"]
+clip_children = 2
+texture = ExtResource("2_ibni4")
+
+[node name="Area2D7" type="Area2D" parent="."]
+position = Vector2(-6, -36)
+scale = Vector2(0.25, 0.25)
+script = ExtResource("1_mxnmk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D7"]
+shape = SubResource("RectangleShape2D_xv6un")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D7"]
+clip_children = 2
+texture = ExtResource("2_ibni4")
+
+[node name="Area2D8" type="Area2D" parent="."]
+position = Vector2(-32, -33)
+scale = Vector2(0.25, 0.25)
+script = ExtResource("1_mxnmk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D8"]
+shape = SubResource("RectangleShape2D_xv6un")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D8"]
+clip_children = 2
+texture = ExtResource("2_ibni4")
+
+[node name="Area2D9" type="Area2D" parent="."]
+position = Vector2(-34, -16)
+scale = Vector2(0.25, 0.25)
+script = ExtResource("1_mxnmk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D9"]
+shape = SubResource("RectangleShape2D_xv6un")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D9"]
+clip_children = 2
+texture = ExtResource("2_ibni4")
+
+[node name="Area2D10" type="Area2D" parent="."]
+position = Vector2(-33, 4)
+scale = Vector2(0.25, 0.25)
+script = ExtResource("1_mxnmk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D10"]
+shape = SubResource("RectangleShape2D_xv6un")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D10"]
+clip_children = 2
+texture = ExtResource("2_ibni4")
+
+[node name="Area2D11" type="Area2D" parent="."]
+position = Vector2(-33, 25)
+scale = Vector2(0.25, 0.25)
+script = ExtResource("1_mxnmk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D11"]
+shape = SubResource("RectangleShape2D_xv6un")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D11"]
+clip_children = 2
+texture = ExtResource("2_ibni4")
+
+[node name="Area2D12" type="Area2D" parent="."]
+position = Vector2(-32, 41)
+scale = Vector2(0.25, 0.25)
+script = ExtResource("1_mxnmk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D12"]
+shape = SubResource("RectangleShape2D_xv6un")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D12"]
+clip_children = 2
+texture = ExtResource("2_ibni4")
+
+[node name="Area2D13" type="Area2D" parent="."]
+position = Vector2(-31, 53)
+scale = Vector2(0.25, 0.25)
+script = ExtResource("1_mxnmk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D13"]
+shape = SubResource("RectangleShape2D_xv6un")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D13"]
+clip_children = 2
+texture = ExtResource("2_ibni4")
+
+[node name="Area2D14" type="Area2D" parent="."]
+position = Vector2(-21, 54)
+scale = Vector2(0.25, 0.25)
+script = ExtResource("1_mxnmk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D14"]
+shape = SubResource("RectangleShape2D_xv6un")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D14"]
+clip_children = 2
+texture = ExtResource("2_ibni4")
+
+[node name="Area2D15" type="Area2D" parent="."]
+position = Vector2(-12, 56)
+scale = Vector2(0.25, 0.25)
+script = ExtResource("1_mxnmk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D15"]
+shape = SubResource("RectangleShape2D_xv6un")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D15"]
+clip_children = 2
+texture = ExtResource("2_ibni4")
+
+[node name="Area2D16" type="Area2D" parent="."]
+position = Vector2(0, 55)
+scale = Vector2(0.25, 0.25)
+script = ExtResource("1_mxnmk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D16"]
+shape = SubResource("RectangleShape2D_xv6un")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D16"]
+clip_children = 2
+texture = ExtResource("2_ibni4")
+
+[node name="Area2D17" type="Area2D" parent="."]
+position = Vector2(16, 55)
+scale = Vector2(0.25, 0.25)
+script = ExtResource("1_mxnmk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D17"]
+shape = SubResource("RectangleShape2D_xv6un")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D17"]
+clip_children = 2
+texture = ExtResource("2_ibni4")
+
+[node name="Area2D18" type="Area2D" parent="."]
+position = Vector2(37, 55)
+scale = Vector2(0.25, 0.25)
+script = ExtResource("1_mxnmk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D18"]
+shape = SubResource("RectangleShape2D_xv6un")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D18"]
+clip_children = 2
+texture = ExtResource("2_ibni4")
+
+[node name="Area2D19" type="Area2D" parent="."]
+position = Vector2(57, 52)
+scale = Vector2(0.25, 0.25)
+script = ExtResource("1_mxnmk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D19"]
+shape = SubResource("RectangleShape2D_xv6un")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D19"]
+clip_children = 2
+texture = ExtResource("2_ibni4")
+
+[node name="Camera2D" type="Camera2D" parent="."]
